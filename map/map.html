@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+   // LAT LNG VARIABLES    
+        var myLatlng1 = { lat: 39.0000, lng: -105.5000};
+        var myLatlng2 = { lat: 37.0000, lng: -120.0000};
+        var myLatlng3 = { lat: 34.0000, lng: -112.0000};
+        var myLatlng4 = { lat: 38.9047, lng: -77.0164};
+        var myLatlng5 = { lat: 61.370716, lng: -152.404419};
+        var myLatlng6 = { lat: 41.597782, lng: -72.755371};
+        var myLatlng7 = { lat: 39.318523, lng: -75.507141};
+        var myLatlng8 = { lat: 21.094318, lng: -157.498337};
+        var myLatlng9 = { lat: 40.349457, lng: -88.986137};
+        var myLatlng10 = { lat: 44.693947, lng: -69.381927};
+        var myLatlng11 = { lat: 39.063946, lng: -76.802101};
+        var myLatlng12 = { lat: 42.230171, lng: -71.530106};
+        var myLatlng13 = { lat: 43.326618, lng: -84.536095};
+        var myLatlng14 = { lat: 45.694454, lng: -93.900192};
+        var myLatlng15 = { lat: 46.921925, lng: -110.454353};
+        var myLatlng16 = { lat: 38.313515, lng: -117.055374};
+        var myLatlng17 = { lat: 43.452492, lng: -71.563896};
+        var myLatlng18 = { lat: 40.298904, lng: -74.521011};
+        var myLatlng19 = { lat: 34.840515, lng: -106.248482};
+        var myLatlng20 = { lat: 42.165726, lng: -74.948051};
+        var myLatlng21 = { lat: 44.572021, lng: -122.070938};
+        var myLatlng22 = { lat: 41.680893, lng: -71.511780};
+        var myLatlng23 = { lat: 44.045876, lng: -72.710686};
+        var myLatlng24 = { lat: 47.400902, lng: -121.490494};
+        
+   // MAP OPTIONS  
+        var mapOptions = {
+          center: { lat: 39.0000, lng: -105.5000},
+          zoom: 4
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+        
+// Information Windows
+        var contentString1 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Colorado</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Ballot Amendment 20 -- Approved Nov. 7, 2000 by 54% of voters<br><br>'+
+            '<strong>Effective:</strong> June 1, 2001. '+
+            'Removes state-level criminal penalties on the use, possession and cultivation of marijuana by patients who possess written documentation from their physician affirming that he or she suffers from a debilitating condition and advising that they "might benefit from the medical use of marijuana." (Patients must possess this documentation prior to an arrest.)<br>'+
+            '<strong>Approved Conditions:</strong> Cancer, glaucoma, HIV/AIDS positive, cachexia; severe pain; severe nausea; seizures, including those that are characteristic of epilepsy; or persistent muscle spasms, including those that are characteristic of multiple sclerosis. Other conditions are subject to approval by the Colorado Board of Health.<br>'+
+            '<strong>Possession/Cultivation:</strong> A patient or a primary caregiver who has been issued a Medical Marijuana Registry identification card may possess no more than two ounces of a usable form of marijuana and not more than six marijuana plants, with three or fewer being mature, flowering plants that are producing a usable form of marijuana.'+
+            'Patients who do not join the registry or possess greater amounts of marijuana than allowed by law may argue the "affirmative defense of medical necessity" if they are arrested on marijuana charges.</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#Colorado">'+
+            'Colorado</a> '+
+            '</p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow1 = new google.maps.InfoWindow({
+             content: contentString1
+  });
+            var contentString2 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">California</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Ballot Proposition 215 -- Approved Nov. 5, 1996 by 56% of voters<br><br>'+
+            '<strong>Effective:</strong> Nov. 6, 1996'+
+            'Removes state-level criminal penalties on the use, possession and cultivation of marijuana by patients who possess a "written or oral recommendation" from their physician that he or she "would benefit from medical marijuana." Patients diagnosed with any debilitating illness where the medical use of marijuana has been "deemed appropriate and has been'+
+            'recommended by a physician" are afforded legal protection under this act. <br>'+
+            '<strong>Approved Conditions:</strong> AIDS, anorexia, arthritis, cachexia, cancer, chronic pain, glaucoma, migraine, persistent muscle spasms, including spasms associated with multiple sclerosis, seizures, including seizures associated with epilepsy, severe nausea; Other chronic or persistent medical symptoms. <br>'+
+            '<strong>Amended:</strong> Senate Bill 420 <br>'+   
+            '<strong>Effective:</strong> Jan. 1, 2004. '+
+            'Imposes statewide guidelines outlining how much medicinal marijuana patients may grow and possess. <br>'+
+            '<strong>Possession/Cultivation:</strong> Qualified patients and their primary caregivers may possess no more than eight ounces of dried marijuana and/or six mature (or 12 immature) marijuana plants. However, S.B. 420 allows patients to possess larger amounts of marijuana when recommended by a physician.'+
+            'The legislation also allows counties and municipalities to approve and/or maintain local ordinances permitting patients to possess larger quantities of medicinal pot than allowed under the new state guidelines.'+
+            'S.B. 420 also grants implied legal protection to the states medicinal marijuana dispensaries, stating, "Qualified patients, persons with valid identification cards, and the designated primary caregivers of qualified patients ... who associate within the state of California in order collectively or cooperatively to cultivate marijuana.'+
+            'for medical purposes, shall not solely on the basis of that fact be subject to state criminal sanctions.</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#California">'+
+            'California</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow2 = new google.maps.InfoWindow({
+             content: contentString2
+  });
+        
+            var contentString3 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Arizona</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Ballot Proposition 203 "Arizona Medical Marijuana Act" -- Approved Nov. 2, 2010 by 50.13% of voters <br><br>'+ 
+            '<strong>Approved Conditions:</strong> Cancer, glaucoma, HIV/AIDS, Hepatitis C, ALS, Crohns disease, Alzheimers disease, cachexia or wasting syndrome, severe and chronic pain, severe nausea, seizures (including epilepsy), severe or persistent muscle spasms (including multiple sclerosis). Starting Jan.1, 2015, PTSD will be added to the list. '+
+            '<strong>Possession/Cultivation:</strong> Qualified patients or their registered designated caregivers may obtain up to 2.5 ounces of marijuana in a 14-day period from a registered nonprofit medical marijuana dispensary.If the patient lives more than 25 miles from the nearest dispensary, the patient or caregiver may cultivate up to 12 marijuana'+
+            'plants in an enclosed, locked facility. <br>'+
+            '<strong>Amended:</strong> Senate Bill 1443 <br>'+
+            '<strong>Effective:</strong> Signed by Governor Jan Brewer on May 7, 2013. '+
+            '"Specifies the prohibition to possess or use marijuana on a postsecondary educational institution campus does not apply to medical research projects involving marijuana that are conducted on the campus, as authorized by applicable federal approvals and on approval of the applicable university institutional review board."</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#Arizona">'+
+            'Arizona</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow3 = new google.maps.InfoWindow({
+             content: contentString3
+  });
+            var contentString4 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Washington DC</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Amendment Act B18-622 -- Approved 13-0 by the Council of the District of Columbia on May 4, 2010; signed by the Mayor on May 21, 2010<br><br>'+
+            '<strong>Effective:</strong> July 27, 2010<br>'+
+            '<strong>Approved Conditions:</strong> HIV, AIDS, cancer, glaucoma, conditions characterized by severe and persistent muscle spasms, such as multiple sclerosis; patients undergoing chemotherapy or radiotherapy, or using azidothymidine or protease inhibitors.<br>'+
+            '<strong>Possession/Cultivation:</strong> "Patients are permitted to purchase up to two (2) ounces of dried medical marijuana per month or the equivalent of two ounces of dried medical marijuana when sold in any other form."</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#DC">'+
+            'Washington DC</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow4 = new google.maps.InfoWindow({
+             content: contentString4
+  });
+            var contentString5 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Alaska</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Ballot Measure 8 -- Approved Nov. 3, 1998 by 58% of voters. <br><strong>Effective:</strong> Mar. 4, 1999. <br> Removed state-level criminal penalties on the use, possession and cultivation of marijuana by patients who possess written documentation from their physician advising that they'+
+            'might benefit from the medical use of marijuana. <br> <strong>Approved Conditions:</strong> Cachexia, cancer, chronic pain, epilepsy and other disorders characterized by seizures, glaucoma, HIV or AIDS, multiple sclerosis and other disorders characterized by muscle spasticity, and nausea. Other conditions are subject to approval by'+
+            'the Alaska Department of Health and Social Services. <br>'+
+            '<strong>Possession/Cultivation:</strong> Patients (or their primary caregivers) may legally possess no more than one ounce of usable marijuana, and may cultivate no more than six marijuana plants, of which no more than three may be mature. The law establishes a confidential state-run patient registry that issues identification cards to'+
+            'qualifying patients. <br>'+
+            '<strong>Amended:</strong> Senate Bill 94<br>'+
+            '<strong>Effective:</strong> June 2, 1999. '+
+            'Mandates all patients seeking legal protection under this act to enroll in the state patient registry and possess a valid identification card. Patients not enrolled in the registry will no longer be able to argue the "affirmative defense of medical necessity" if they are arrested on marijuana charges. <br></p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#Alaska">'+
+            'Alaska</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow5 = new google.maps.InfoWindow({
+             content: contentString5
+  });
+        
+            var contentString6 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Connecticut</h1>'+
+            '<div id="bodyContent">'+
+            '<p>HB 5389 -- Signed into law by Gov. Dannel P. Malloy (D) on May 31, 2012<br><br>'+
+            '<strong>Approved:</strong> By House 96-51, by Senate 21-13<br>'+
+            '<strong>Possession/Cultivation:</strong> Qualifying patients may possess "an amount of usable marijuana reasonably necessary to ensure uninterrupted availability for a period of one month, as determined by the Department of Consumer Protection."</p>'+
+            '<p>Attribution: <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+            'Connecticut</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow6 = new google.maps.InfoWindow({
+             content: contentString6
+  });
+        
+          var contentString7 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Delaware</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Senate Bill 17 -- Signed into law by Gov. Jack Markell (D) on May 13, 2011<br><br>'+      
+            '<strong>Approved:</strong> By House 27-14, by Senate 17-4<br>'+
+            '<strong>Approved Conditions:</strong> Approved for treatment of debilitating medical conditions, defined as cancer, HIV/AIDS, decompensated cirrhosis (Hepatitis C), ALS, Alzheimers disease. Also approved for "a chronic or debilitating disease or medical condition or its treatment that produces 1 or more of the following: cachexia or wasting syndrome;'+
+            'severe, debilitating pain that has not responded to previously prescribed medication or surgical measures for more than 3 months or for which other treatment options produced serious side effects; intractable nausea; seizures; or severe and persistent muscle spasms, including but not limited to those characteristic of multiple sclerosis."<br>'+
+            '<strong>Possession/Cultivation:</strong> Patients 18 and older with certain debilitating conditions may possess up to six ounces of marijuana with a doctors written recommendation. A registered compassion center may not dispense more than 3 ounces of marijuana to a registered qualifying patient in any fourteen-day period, and a patient may register with only one compassion center.'+
+            'Home cultivation is not allowed. Senate Bill 17 contains a provision that allows for an affirmative defense for individuals "in possession of no more than six ounces of usable marijuana."</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#Delaware">'+
+            'Delaware</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow7 = new google.maps.InfoWindow({
+             content: contentString7
+  });
+          var contentString8 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Hawaii</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Senate Bill 862-- Signed into law by Gov. Ben Cayetano on June 14, 2000<br><br>'+
+            '<strong>Approved:</strong> By House 32-18, by Senate 13-12<br>'+
+            '<strong>Effective:</strong> Dec. 28, 2000<br>'+   
+            '<srtong>Approved conditions:</strong> Cancer, glaucoma, positive status for HIV/AIDS; A chronic or debilitating disease or medical condition or its treatment that produces cachexia or wasting syndrome, severe pain, severe nausea, seizures, including those characteristic of epilepsy, or severe and persistent muscle spasms, including those characteristic of multiple sclerosis or Crohns disease. Other conditions are subject to approval by the Hawaii Department of Health.<br>'+
+            '<strong>Possession/Cultivation:</strong> The amount of marijuana that may be possessed jointly between the qualifying patient and the primary caregiver is an "adequate supply," which shall not exceed three mature marijuana plants, four immature marijuana plants, and one ounce of usable marijuana per each mature plant.</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#Hawaii">'+
+            'Hawaii</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow8 = new google.maps.InfoWindow({
+             content: contentString8
+  });
+           var contentString9 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Illinois</h1>'+
+            '<div id="bodyContent">'+
+            '<p>House Bill 1<br>'+
+            '<strong>Approved:</strong> Apr. 17, 2013 by House, 61-57 and May 17, 2013 by Senate, 35-21. Signed into law by Gov. Pat Quinn on Aug. 1, 2013.<br>'+
+            '<strong>Effective:</strong> Jan. 1, 2014<br>'+
+            '<strong>Approved Conditions:</strong> "Debilitating medical conditions include 40 chronic diseases and conditions: cancer, glaucoma, positive status for human immunodeficiency virus (HIV), acquired immunodeficiency syndrome (AIDS), hepatitis C, amyotrophic lateral sclerosis, Crohns disease, agitation of Alzheimers disease, cachexia/wasting syndrome, muscular dystrophy, severe fibromyalgia, spinal cord disease (including but not limited to arachnoiditis), Tarlov cysts, hydromyelia syringomyelia, Rheumatoid arthritis, fibrous dysplasia, spinal cord injury, traumatic brain injury and post concussion syndrome, Multiple Sclerosis, Arnold-Chiari malformation and Syringomelia, Spinocerebellar Ataxia (SCA), Parkinsons Disease, Tourette Syndrome, Myoclonus, Dystonia, Reflex Sympathetic Dystrophy, RSD (Complex Regional Pain Syndromes Type I), Causalgia, CRPS (Complex Regional Pain Syndrome Type II), Neurofibromatosis,'+
+            'Chronic inflammatory Demyelinating Polyneuropathy, Chronic Inflammatory Demyelinating Polyneuropathy, Sjogrens Syndrome, Lupus, Interstitial Cystitis, Myasthenia Gravis, Hydrocephalus, nail-patella syndrome or residual limb pain; or the treatment of these conditions."<br>'+
+            '<strong>Possession/Cultivation:</strong> "Adequate supply" is defined as "2.5 ounces of usable cannabis during a period of 14 days and that is derived solely from an intrastate source." The law does not allow patients or caregivers to cultivate cannabis.</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#Illinois">'+
+            'Illinois</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow9 = new google.maps.InfoWindow({
+             content: contentString9
+  });
+         var contentString10 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Maine</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Ballot Question 2 -- Approved Nov. 2, 1999 by 61% of voters<br><br>'+
+            '<strong>Effective:</strong> Dec. 22, 1999. Removes state-level criminal penalties on the use, possession and cultivation of marijuana by patients who possess an oral or written "professional opinion" from their physician that he or she "might benefit from the medical use of marijuana." The law does not establish a state-run patient registry.<br>'+
+            '<strong>Approved diagnosis:</strong> epilepsy and other disorders characterized by seizures; glaucoma; multiple sclerosis and other disorders characterized by muscle spasticity; and nausea or vomiting as a result of AIDS or cancer chemotherapy.<br>'+
+            '<strong>Possession/Cultivation:</strong> Patients (or their primary caregivers) may legally possess no more than one and one-quarter (1.25) ounces of usable marijuana, and may cultivate no more than six marijuana plants, of which no more than three may be mature. Those patients who possess greater amounts of marijuana than allowed by law are afforded a "simple defense" to a charge of marijuana possession.</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#Maine">'+
+            'Maine</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow10 = new google.maps.InfoWindow({
+             content: contentString10
+  });
+          var contentString11 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Maryland</h1>'+
+            '<div id="bodyContent">'+
+            '<p>House Bill 881<br><br>'+      
+            '<strong>Approved:</strong> Apr. 8, 2014 by House, 125-11 and by Senate, 44-2.<br>'+
+            '<strong>Effective:</strong> June 1, 2014<br>'+
+            '<strong>Approved diagnosis:</strong> cachexia, anorexia, or wasting syndrome, severe or chronic pain, severe nausea, seizures, severe or persistent muscle spasms, or other conditions approved by the Commission.<br>'+
+            '<strong>Possession/Cultivation:</strong> Patients are allowed to possess a 30-day supply (amount to be determined by the Commission). "Beginning June 1, 2016, the Commission may issue the number of [dispensary] licenses necessary to meet the demand for medical marijuana by qualifying patients and caregivers issued identification cards."</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#Maryland">'+
+            'Maryland</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow11 = new google.maps.InfoWindow({
+             content: contentString11
+  });
+                var contentString12 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Massachusetts</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Ballot Question 3 -- Approved Nov. 6, 2012 by 63% of voters<br><br>'+
+            '<strong>Effective:</strong> Jan. 1, 2013. "The citizens of Massachusetts intend that there should be no punishment under state law for qualifying patients, physicians and health care professionals, personal caregivers for patients, or medical marijuana treatment center agents for the medical use of marijuana...<br>'+
+            '<strong>Approved diagnosis:</strong> "Cancer, glaucoma, positive status for human immunodeficiency virus, acquired immune deficiency syndrome (AIDS), hepatitis C, amyotrophic lateral sclerosis (ALS), Crohns disease, Parkinsons disease, multiple sclerosis and other conditions as determined in writing by a qualifying patient’s physician."<br>'+
+            '<strong>Possession/Cultivation:</strong> Patients may possess "no more marijuana than is necessary for the patients personal, medical use, not exceeding the amount necessary for a sixty-day supply... Within 120 days of the effective date of this law, the department shall issue regulations defining the quantity of marijuana that could reasonably be presumed to be a sixty-day supply for qualifying patients, based on the best available evidence."</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#Massachusetts">'+
+            'Massachusetts</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow12 = new google.maps.InfoWindow({
+             content: contentString12
+  });
+            var contentString13 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Michigan</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Proposal 1 -- Approved by 63% of voters on Nov. 4, 2008 <br><br>'+      
+            '<strong>Approved:</strong> Nov. 4, 2008<br>'+
+            '<strong>Effective:</strong> Dec. 4, 2008<br>'+
+            '<strong>Approved Conditions:</strong> Approved for treatment of debilitating medical conditions, defined as cancer, glaucoma, HIV, AIDS, hepatitis C, amyotrophic lateral sclerosis, Crohns disease, agitation of Alzheimers disease, nail patella, cachexia or wasting syndrome, severe and chronic pain, severe nausea, seizures, epilepsy, muscle spasms, multiple sclerosis, and PTSD.<br>'+
+            '<strong>Possession/Cultivation:</strong> Patients may possess up to two and one-half (2.5) ounces of usable marijuana and twelve marijuana plants kept in an enclosed, locked facility. The twelve plants may be kept by the patient only if he or she has not specified a primary caregiver to cultivate the marijuana for him or her.</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#Michigan">'+
+            'Michigan</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow13 = new google.maps.InfoWindow({
+             content: contentString13
+  });
+        
+            var contentString14 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Minnesota</h1>'+
+            '<div id="bodyContent">'+
+            '<p>SF 2470  (200 KB) -- Signed into law by Gov. Mark Dayton on May 29, 2014<br><br>'+
+            '<strong>Approved:</strong> By Senate 46-16, by House 89-40<br>'+ 
+            '<strong>Effective:</strong> May 30, 2014<br>'+
+            '<strong>Approved Conditions:</strong> cancer (if the underlying condition or treatment produces severe or chronic pain, nausea or severe vomiting, or cachexia or severe wasting), glaucoma, HIV/AIDS, Tourettes syndorme, ALS, seizures/epilepsy, severe and persistent muscle spasms/MS, Crohns disease, terminal illness with a life expectancy of under one year.<br>'+
+            '<strong>Possession/Cultivation:</strong> The Commissioner of Health will register two in-state manufacturers for the production of all medical cannabis within the state. Manufacturers are required to ensure that the medical cannabis distributed contains a maximum of a 30-day supply of the dosage determined for that patient. </p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#Minnesota">'+
+            'Minnesota</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow14 = new google.maps.InfoWindow({
+             content: contentString14
+  });
+            var contentString15 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Montana</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Initiative 148 -- Approved by 62% of voters on Nov. 2, 2004<br>'+
+            '<strong>Effective:</strong> July 1, 2011. SB 423 changes the application process to require a Montana drivers license or state issued ID card. A second physician is required to confirm a chronic pain diagnosis.<br>'+
+            '<strong>Approved Conditions:</strong> Cancer, glaucoma, or positive status for HIV/AIDS when the condition or disease results in symptoms that seriously and adversely affect the patients health status; Cachexia or wasting syndrome; Severe, chronic pain that is persistent pain of severe intensity that significantly interferes with daily activities as documented by the patients treating physician; Intractable nausea or vomiting; Epilepsy or intractable seizure disorder; Multiple sclerosis; Chrons Disease; Painful peripheral neuropathy; A central nervous system disorder resulting in chronic, painful spasticity or muscle spasms; Admittance into hospice care.<br>'+
+            '<strong>Possession/Cultivation:</strong> Amended to 12 seedlings (less than 12"), four mature flowering plants, and one ounce of usable marijuana.</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#Montana">'+
+            'Montana</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow15 = new google.maps.InfoWindow({
+             content: contentString15
+  });
+            var contentString16 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Nevada</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Ballot Question 9 -- Approved Nov. 7, 2000 by 65% of voters<br><br>'+   
+            '<strong>Effective:</strong> Oct. 1, 2001. Removes state-level criminal penalties on the use, possession and cultivation of marijuana by patients who have "written documentation" from their physician that marijuana may alleviate his or her condition.<br>'+
+            '<strong>Approved Conditions:</strong> AIDS; cancer; glaucoma; and any medical condition or treatment to a medical condition that produces cachexia, persistent muscle spasms or seizures, severe nausea or pain, and PTSD. Other conditions are subject to approval by the health division of the state Department of Human Resources.<br>'+
+            '<strong>Possession/Cultivation:</strong> Patients (or their primary caregivers) may legally possess no more than one ounce of usable marijuana, three mature plants, and four immature plants.</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#Nevada">'+
+            'Nevada</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow16 = new google.maps.InfoWindow({
+             content: contentString16
+  });
+        
+            var contentString17 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">New Hampshire</h1>'+
+            '<div id="bodyContent">'+
+            '<p>House Bill 573<br>'+
+            '<strong>Approved:</strong> May 23, 2013 by Senate, 18-6 and June 26, 2013 by House, 284-66<br><br>'+ 
+            '<strong>Effective:</strong> Upon passage. The bill authorizes the use of therapeutic cannabis in New Hampshire, establishes a registry identification card system, allows for the registration of up to four non-profit alternative treatment centers in the state, and establishes an affirmative defense for qualified patients and designated caregivers with valid registry ID cards.<br>'+
+            '<strong>Approved Conditions:</strong> Cancer, glaucoma, positive status for HIV, AIDS, hepatitis C, ALS, muscular dystrophy, Crohns disease, agitation of Alzheimers disease, multiple sclerosis, chronic pancreatitis, spinal cord injury or disease, traumatic brain injury, or "one or more injuries that significantly interferes with daily activities as documented by the patients provider; and a severely debilitating or terminal medical condition or its treatment that has produced at least one of the following: elevated intraocular pressure, cachexia, chemotherapy induced anorexia, wasting syndrome, severe pain that has not responded to previously prescribed medication or surgical measures or for which other treatment options produced serious side effects, constant or severe nausea, moderate to severe vomiting, seizures, or severe, persistent muscle spasms."<br>'+
+            '<strong>Possession/Cultivation:</strong> "A qualifying patient shall not obtain more than 2 ounces of usable cannabis directly or through the qualifying patients designated caregiver during a 10-day period." A patient may possess two ounces of usable cannabis and any amount of unusable cannabis.</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#NH">'+
+            'New Hampshire</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow17 = new google.maps.InfoWindow({
+             content: contentString17
+  });
+        
+          var contentString18 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">New Jersey</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Senate Bill 119<br><br>'+
+            '<strong>Approved:</strong> Jan. 11, 2010 by House, 48-14; by Senate, 25-13. Signed into law by Gov. Jon Corzine on Jan. 18, 2010. <br>'+
+            '<strong>Effective:</strong> Six months from enactment<br>'+
+            '<strong>Approved Conditions:</strong> Seizure disorder, including epilepsy, intractable skeletal muscular spasticity, glaucoma; severe or chronic pain, severe nausea or vomiting, cachexia, or wasting syndrome resulting from HIV/AIDS or cancer; amyotrophic lateral sclerosis (Lou Gehrigs Disease), multiple sclerosis, terminal cancer, muscular dystrophy, or inflammatory bowel disease, including Crohn’s disease; terminal illness, if the physician has determined a prognosis of less than 12 months of life or any other medical condition or its treatment that is approved by the Department of Health and Senior Services.<br>'+
+            '<strong>Possession/Cultivation:</strong> Physicians determine how much marijuana a patient needs and give written instructions to be presented to an alternative treatment center. The maximum amount for a 30-day period is two ounces.</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#NewJersey">'+
+            'New Jersey</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow18 = new google.maps.InfoWindow({
+             content: contentString18
+  });
+          var contentString19 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">New Mexico</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Senate Bill 523<br><br>'+
+            '<strong>Approved:</strong> Mar. 13, 2007 by House, 36-31; by Senate, 32-3<br> '+
+            '<strong>Effective:</strong> July 1, 2007. Removes state-level criminal penalties on the use and possession of marijuana by patients "in a regulated system for alleviating symptoms caused by debilitating medical conditions and their medical treatments." The New Mexico Department of Health designated to administer the program and register patients, caregivers, and providers.<br>'+
+            '<strong>Approved Conditions:</strong> As of Apr. 23, 2014, the 19 current qualifying conditions for medical cannabis were: severe chronic pain, painful peripheral neuropathy, intractable nausea/vomiting, severe anorexia/cachexia, hepatitis C infection, Crohns disease, Post-Traumatic Stress Disorder, ALS (Lou Gehrigs disease), cancer, glaucoma, multiple sclerosis, damage to the nervous tissue of the spinal cord with intractable spasticity, epilepsy, HIV/AIDS, hospice patients, cervical dystonia, Inflammaory Autoimmune-mediated Arthritis, Parkinsons disease, and Huntingtons disease.<br>'+
+            '<strong>Possession/Cultivation:</strong> Patients have the right to possess up to six ounces of usable cannabis, four mature plants and 12 seedlings. Usable cannabis is defined as dried leaves and flowers; it does not include seeds, stalks or roots. A primary caregiver may provide services to a maximum of four qualified patients under the Medical Cannabis Program.</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#NewMexico">'+
+            'New Mexico</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow19 = new google.maps.InfoWindow({
+             content: contentString19
+  });
+           var contentString20 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">New York</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Assembly Bill 6357<br><br>'+
+            '<strong>Approved:</strong> June 19, 2014 by Assembly, 117-13; June 20, 2014 by Senate, 49-10<br>'+
+            '<strong>Effective:</strong> Upon Governors signature.The Department of Health has 18 months to establish regulations and register dispensing organizations. Marijuana will be taxed at 7%, to be paid by the dispensary. The law automatically expires after seven years.<br>'+
+            '<strong>Approved Conditions:</strong> Cancer, HIV/AIDS, ALS (Lou Gehrigs disease), Parkinsons disease, multiple sclerosis, spinal cord damage causing spasticity, epilepsy, inflammatory bowel disease, neuropathies, or Huntingtons disease. The Department of Health commissioner has the discretion to add or delete conditions and must decide whether to add Alzheimers, muscular dystrophy, dystonia, PTSD, and rheumatoid arthritis within 18 months of the law becoming effective.<br>'+
+            '<strong>Possession/Cultivation:</strong> 30-day supply to be determined by the health commissioner during the rule making process or by the physician.</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#NewYork">'+
+            'New York</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow20 = new google.maps.InfoWindow({
+             content: contentString20
+  });
+         var contentString21 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Oregon</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Ballot Measure 67 -- Approved by 55% of voters on Nov. 3, 1998<br><br>'+
+            '<strong>Approved Conditions:</strong> Cancer, glaucoma, positive status for HIV/AIDS, or treatment for these conditions; A medical condition or treatment for a medical condition that produces cachexia, severe pain, severe nausea, seizures, including seizures caused by epilepsy, or persistent muscle spasms, including spasms caused by multiple sclerosis. Other conditions are subject to approval by the Health Division of the Oregon Department of Human Resources.<br>'+
+            '<strong>Possession/Cultivation:</strong> A registry identification cardholder or the designated primary caregiver of the cardholder may possess up to six mature marijuana plants and 24 ounces of usable marijuana. A registry identification cardholder and the designated primary caregiver of the cardholder may possess a combined total of up to 18 marijuana seedlings.</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#Oregon">'+
+            'Oregon</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow21 = new google.maps.InfoWindow({
+             content: contentString21
+  });
+          var contentString22 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Rhode Island</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Senate Bill 0710 -- Approved by state House and Senate, vetoed by the Governor. Veto was over-ridden by House and Senate.<br><br>'+
+            '<strong>Approved Conditions:</strong> Cancer, glaucoma, positive status for HIV/AIDS, Hepatitis C, or the treatment of these conditions; A chronic or debilitating disease or medical condition or its treatment that produces cachexia or wasting syndrome; severe, debilitating, chronic pain; severe nausea; seizures, including but not limited to, those characteristic of epilepsy; or severe and persistent muscle spasms, including but not limited to, those characteristic of multiple sclerosis or Crohns disease; or agitation of Alzheimers Disease; or any other medical condition or its treatment approved by the state Department of Health.<br>'+
+            '<strong>Possession/Cultivation:</strong> Limits the amount of marijuana that can be possessed and grown to up to 12 marijuana plants or 2.5 ounces of cultivated marijuana. Primary caregivers may not possess an amount of marijuana in excess of 24 marijuana plants and five ounces of usable marijuana for qualifying patients to whom he or she is connected through the Departments registration process.</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#RhodeIsland">'+
+            'Rhode Island</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow22 = new google.maps.InfoWindow({
+             content: contentString22
+  });
+        
+                 var contentString23 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Vermont</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Senate Bill 76  (45 KB) -- Approved 22-7; House Bill 645  (41 KB) -- Approved 82-59 (Sec. 1. 18 V.S.A. chapter 86  (41 KB) passed by the General Assembly) Gov. James Douglas (R), allowed the act to pass into law unsigned on May 26, 2004<br><br>'+
+            '<strong>Amended:</strong> Senate Bill 00007<br>'+      
+            '<strong>Effective:</strong> May 30, 2007<br>'+
+            '<strong>Approved Conditions:</strong> Cancer, AIDS, positive status for HIV, multiple sclerosis, or the treatment of these conditions if the disease or the treatment results in severe, persistent, and intractable symptoms; or a disease, medical condition, or its treatment that is chronic, debilitating and produces severe, persistent, and one or more of the following intractable symptoms: cachexia or wasting syndrome, severe pain or nausea or seizures.<br>'+
+            '<strong>Possession/Cultivation:</strong> No more than two mature marijuana plants, seven immature plants, and two ounces of usable marijuana may be collectively possessed between the registered patient and the patient’s registered caregiver. A marijuana plant shall be considered mature when male or female flower buds are readily observed on the plant by unaided visual examination. Until this sexual differentiation has taken place, a marijuana plant will be considered immature. </p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#Vermont">'+
+            'Vermont</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow23 = new google.maps.InfoWindow({
+             content: contentString23
+  });
+          var contentString24 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Washington</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Chapter 69.51A RCW  (4KB) Ballot Initiative I-692 -- Approved by 59% of voters on Nov. 3, 1998<br><br>'+
+            '<strong>Approved Conditions:</strong> cachexia; cancer; HIV or AIDS; epilepsy; glaucoma; intractable pain (defined as pain unrelieved by standard treatment or medications); and multiple sclerosis. Other conditions are subject to approval by the Washington Board of Health. Additional conditions as of Nov. 2, 2008: Crohns disease, Hepatitis C with debilitating nausea or intractable pain, diseases, including anorexia, which result in nausea, vomiting, wasting, appetite loss, cramping, seizures, muscle spasms, or spasticity, when those conditions are unrelieved by standard treatments or medications. Added as of Aug. 31, 2010: chronic renal failure<br>'+
+            '<strong>Amended:</strong> Final Rule based on Significant Analysis<br>'+
+            '<strong>Effective:</strong> Nov. 2, 2008<br>'+
+            '<strong>Possession/Cultivation:</strong> A qualifying patient and designated provider may possess a total of no more than twenty-four ounces of usable marijuana, and no more than fifteen plants. This quantity became the states official "60-day supply" on Nov. 2, 2008.</p>'+
+            '<p>Attribution: <a href="http://medicalmarijuana.procon.org/view.resource.php?resourceID=000881#Washington">'+
+            'Washington</a></p>'+
+            '</div>'+
+            '</div>';
+      
+        var infowindow24 = new google.maps.InfoWindow({
+             content: contentString24
+  });
+        
+        
+        // To add the marker to the map, use the 'map' property
+        var marker1 = new google.maps.Marker({
+            position: myLatlng1,
+            map: map,
+            title:"Colorado!"
+    });
+        var marker2 = new google.maps.Marker({
+            position: myLatlng2,
+            map: map,
+            title:"California"
+    });
+        
+        var marker3 = new google.maps.Marker({
+            position: myLatlng3,
+            map: map,
+            title:"Arizona"
+    });
+                    
+        var marker4 = new google.maps.Marker({
+            position: myLatlng4,
+            map: map,
+            title:"DC"
+    });
+        var marker5 = new google.maps.Marker({
+            position: myLatlng5,
+            map: map,
+            title:"Alaska"
+    });
+        var marker6 = new google.maps.Marker({
+            position: myLatlng6,
+            map: map,
+            title:"Connecticut"
+    });
+        var marker7 = new google.maps.Marker({
+            position: myLatlng7,
+            map: map,
+            title:"Delaware"
+    });
+       var marker8 = new google.maps.Marker({
+            position: myLatlng8,
+            map: map,
+            title:"Hawaii"
+    });
+        var marker9 = new google.maps.Marker({
+            position: myLatlng9,
+            map: map,
+            title:"Illinois"
+    }); 
+        var marker10 = new google.maps.Marker({
+            position: myLatlng10,
+            map: map,
+            title:"Maine"
+    });
+        var marker11 = new google.maps.Marker({
+            position: myLatlng11,
+            map: map,
+            title:"Maryland"
+    });
+         var marker12 = new google.maps.Marker({
+            position: myLatlng12,
+            map: map,
+            title:"Massachusetts"
+    });
+        var marker13 = new google.maps.Marker({
+            position: myLatlng13,
+            map: map,
+            title:"Michigan"
+    });
+        var marker14 = new google.maps.Marker({
+            position: myLatlng14,
+            map: map,
+            title:"Minnesota"
+    });              
+        var marker15 = new google.maps.Marker({
+            position: myLatlng15,
+            map: map,
+            title:"Montana"
+    });
+        var marker16 = new google.maps.Marker({
+            position: myLatlng16,
+            map: map,
+            title:"Nevada"
+    });
+        var marker17 = new google.maps.Marker({
+            position: myLatlng17,
+            map: map,
+            title:"New Hampshire"
+    });
+        var marker18 = new google.maps.Marker({
+            position: myLatlng18,
+            map: map,
+            title:"New Jersey"
+    });
+       var marker19 = new google.maps.Marker({
+            position: myLatlng19,
+            map: map,
+            title:"New Mexico"
+    });
+        var marker20 = new google.maps.Marker({
+            position: myLatlng20,
+            map: map,
+            title:"New York"
+    }); 
+        var marker21 = new google.maps.Marker({
+            position: myLatlng21,
+            map: map,
+            title:"Oregon"
+    });
+        var marker22 = new google.maps.Marker({
+            position: myLatlng22,
+            map: map,
+            title:"Rhode Island"
+    });
+        var marker23 = new google.maps.Marker({
+            position: myLatlng23,
+            map: map,
+            title:"Vermont"
+    });
+        var marker24 = new google.maps.Marker({
+            position: myLatlng24,
+            map: map,
+            title:"Washington"
+    });
+        
+    google.maps.event.addListener(marker1, 'click', function() {
+    infowindow1.open(map,marker1);
+  });
+    google.maps.event.addListener(marker2, 'click', function() {
+    infowindow2.open(map,marker2);
+  });        
+    google.maps.event.addListener(marker3, 'click', function() {
+    infowindow3.open(map,marker3);
+  });
+    google.maps.event.addListener(marker4, 'click', function() {
+    infowindow4.open(map,marker4);
+  });
+    google.maps.event.addListener(marker5, 'click', function() {
+    infowindow5.open(map,marker5);
+  });
+    google.maps.event.addListener(marker6, 'click', function() {
+    infowindow6.open(map,marker6);
+  });
+    google.maps.event.addListener(marker7, 'click', function() {
+    infowindow7.open(map,marker7);
+  });
+    google.maps.event.addListener(marker8, 'click', function() {
+    infowindow8.open(map,marker8);
+  });
+    google.maps.event.addListener(marker9, 'click', function() {
+    infowindow9.open(map,marker9);
+  });
+    google.maps.event.addListener(marker10, 'click', function() {
+    infowindow10.open(map,marker10);
+  });
+    google.maps.event.addListener(marker11, 'click', function() {
+    infowindow11.open(map,marker11);
+  });
+    google.maps.event.addListener(marker12, 'click', function() {
+    infowindow12.open(map,marker12);
+  });
+    google.maps.event.addListener(marker13, 'click', function() {
+    infowindow13.open(map,marker13);
+  });        
+    google.maps.event.addListener(marker14, 'click', function() {
+    infowindow14.open(map,marker3);
+  });
+    google.maps.event.addListener(marker15, 'click', function() {
+    infowindow15.open(map,marker15);
+  });
+    google.maps.event.addListener(marker16, 'click', function() {
+    infowindow16.open(map,marker16);
+  });
+    google.maps.event.addListener(marker17, 'click', function() {
+    infowindow17.open(map,marker17);
+  });
+    google.maps.event.addListener(marker18, 'click', function() {
+    infowindow18.open(map,marker18);
+  });
+    google.maps.event.addListener(marker19, 'click', function() {
+    infowindow19.open(map,marker19);
+  });
+    google.maps.event.addListener(marker20, 'click', function() {
+    infowindow20.open(map,marker20);
+  });
+    google.maps.event.addListener(marker21, 'click', function() {
+    infowindow21.open(map,marker21);
+  });
+    google.maps.event.addListener(marker22, 'click', function() {
+    infowindow22.open(map,marker22);
+  });
+    google.maps.event.addListener(marker23, 'click', function() {
+    infowindow23.open(map,marker23);
+  });
+    google.maps.event.addListener(marker24, 'click', function() {
+    infowindow24.open(map,marker24);
+  });
+      }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+      
+      
+        
+ 
+      
+    </script>
+  </head>
+  <body>
+<div id="map-canvas"></div>
+  </body>
+</html>

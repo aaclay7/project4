@@ -1,0 +1,90 @@
+@font-face {
+    font-family: PenelopeAnne;
+    src: url('fonts/PenelopeAnne.ttf');
+}
+
+
+.header {
+
+    height: 200px;
+    position: inherit;
+}
+
+.iframe {
+border: 4px solid #000;
+  -moz-border-radius: 15px;
+  border-radius: 15px;  
+}
+
+h1 {
+    text-align: center;
+    color: #488C03;
+    font-size: 90pt;
+    font-family: PenelopeAnne;
+  
+}
+
+h2 {
+    text-align: center;
+    color: #488C03;
+    font-size: 24pt;
+    font-family: PenelopeAnne;
+  
+}
+
+h3 {
+    color: #488C03;
+    font-size: 18pt;
+    font-family: PenelopeAnne;
+    float: right;
+  
+}
+
+h4 {
+    color: #488C03;
+    font-size: 14pt;
+    font-family: PenelopeAnne;
+  
+}
+
+p {
+   color: #2A3F14; 
+}
+
+.pic {
+    position: inherit;
+}
+
+
+/* unvisited link */
+a:link {
+    color: #488C03;
+}
+
+/* visited link */
+a:visited {
+    color: #2A3F14;
+}
+
+/* mouse over link */
+a:hover {
+    color: #565902;
+}
+
+/* selected link */
+a:active {
+    color: #733702;
+}
+
+.boxed {
+  border: 2px solid;
+  background-image: url(images/plant.jpg);
+  background-position: center;
+  background-repeat: inherit;
+  border-color: #488C03;
+  height: 450px;
+  border-radius: 15px;
+  background-size: 100%;
+  
+}
+
